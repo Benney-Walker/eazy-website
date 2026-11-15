@@ -1,0 +1,241 @@
+/* Design C: full-screen photo, form in a bottom sheet (floating card on desktop). */
+.sign-in {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--color-brand-800);
+  overflow: hidden;
+}
+
+/* On phones the photo only fills the area above the sheet, so a landscape photo
+   isn't zoomed into a tall screen. */
+.sign-in__photo,
+.sign-in__shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62svh;
+}
+
+.sign-in__photo {
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+.sign-in__shade {
+  background: linear-gradient(to bottom, rgb(7 62 51 / 0.7) 0%, rgb(7 62 51 / 0.15) 40%, rgb(7 62 51 / 0.35) 100%);
+}
+
+.sign-in__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-4);
+  z-index: 1;
+}
+
+.sign-in__header a {
+  text-decoration: none;
+}
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  margin-top: 30svh;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: var(--space-3) var(--space-5) calc(var(--space-6) + env(safe-area-inset-bottom));
+  box-shadow: 0 -8px 32px rgb(7 62 51 / 0.18);
+}
+
+.sheet__handle {
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+  margin: 0 auto var(--space-5);
+}
+
+.sheet__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.sheet__lead {
+  margin: var(--space-2) 0 var(--space-5);
+  color: var(--color-ink-muted);
+}
+
+.sheet__submit {
+  width: 100%;
+  margin-top: var(--space-5);
+}
+
+.sheet__submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.sheet__footer {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: center;
+  text-align: center;
+  margin-top: var(--space-5);
+}
+
+/* ---------- Fields ---------- */
+.field__label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.field__hint,
+.field__error {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+.field__error {
+  color: var(--grade-fail-text);
+}
+
+.phone-field {
+  display: flex;
+  align-items: stretch;
+  height: 52px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  overflow: hidden;
+}
+
+.phone-field:focus-within {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px var(--color-brand-subtle);
+}
+
+.phone-field--error {
+  border-color: var(--grade-fail-text);
+}
+
+.phone-field__prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  background: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  font-weight: 600;
+}
+
+.phone-field__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 0 var(--space-3);
+  font: inherit;
+  font-size: var(--text-lg);
+  color: var(--color-ink);
+  background: transparent;
+}
+
+.phone-field__input:focus {
+  outline: none;
+}
+
+.phone-field__input::placeholder {
+  color: var(--color-ink-subtle);
+}
+
+/* ---------- 6-digit code ---------- */
+.code-input {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.code-input__box {
+  width: 100%;
+  height: 56px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  text-align: center;
+  font: inherit;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-ink);
+  caret-color: var(--color-brand);
+}
+
+.code-input__box:focus {
+  outline: none;
+  border: 2px solid var(--color-peach);
+}
+
+.code-input__box--error {
+  border-color: var(--grade-fail-text);
+  background: var(--grade-fail-bg);
+}
+
+.code-input__box:disabled {
+  opacity: 0.6;
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--color-brand);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Desktop: floating card on the photo ---------- */
+@media (min-width: 900px) {
+  .sign-in {
+    justify-content: center;
+    align-items: flex-end;
+    padding: var(--space-6) 8vw;
+  }
+
+  .sign-in__header {
+    padding: var(--space-5) var(--space-7);
+  }
+
+  .sign-in__photo,
+  .sign-in__shade {
+    height: 100%;
+  }
+
+  .sign-in__photo {
+    object-position: 50% 30%;
+  }
+
+  .sign-in__shade {
+    background: linear-gradient(to left, rgb(7 62 51 / 0.75) 0%, rgb(7 62 51 / 0.35) 50%, rgb(7 62 51 / 0.15) 100%);
+  }
+
+  .sheet {
+    margin-top: 0;
+    width: 420px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: 0 24px 64px rgb(7 62 51 / 0.3);
+  }
+
+  .sheet__handle {
+    display: none;
+  }
+}
