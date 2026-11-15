@@ -1,0 +1,69 @@
+/*
+ * Design tokens: palette 1, "Sage and peach".
+ * Always use these variables in components. Never hardcode hex values.
+ */
+:root {
+  /* Brand (same green as the EazyManage desktop app) */
+  --color-brand: #0e7c66;
+  --color-brand-700: #0a5c4c;
+  --color-brand-800: #073e33;
+  --color-brand-subtle: #dcefe8;
+
+  /* Ink (text) */
+  --color-ink: #141a17;
+  --color-ink-muted: #4f5a54;
+  --color-ink-subtle: #6b766f;
+  --color-on-brand: #ffffff;
+
+  /* Surfaces */
+  --color-bg: #eef2ec; /* sage page background */
+  --color-surface: #fbfbf8; /* cards */
+  --color-surface-raised: #ffffff;
+  --color-border: #dde5da;
+  --color-border-strong: #c5d1c2;
+
+  /* Accent (highlights only, never body text) */
+  --color-peach: #f59e6b;
+  --color-peach-subtle: #fde7d8;
+  --color-peach-ink: #5e2c0f;
+
+  /* Grade scale (results only) */
+  --grade-top-bg: #e3f3e9;
+  --grade-top-text: #1f6b3d;
+  --grade-mid-bg: #fbefd9;
+  --grade-mid-text: #7a5214;
+  --grade-fail-bg: #fbe4e4;
+  --grade-fail-text: #9b2c2c;
+
+  /* Typography */
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgb(20 26 23 / 0.04), 0 8px 24px rgb(20 26 23 / 0.06);
+
+  /* Layout */
+  --content-width: 1120px;
+}

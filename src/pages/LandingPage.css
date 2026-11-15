@@ -1,0 +1,262 @@
+/* ---------- Header (sits on top of the hero photo) ---------- */
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.site-header__home {
+  text-decoration: none;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 88svh;
+  color: var(--color-on-brand);
+  background: var(--color-brand-800);
+  overflow: hidden;
+}
+
+.hero__photo,
+.cta-band__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__photo {
+  object-position: 60% 30%;
+}
+
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgb(7 62 51 / 0.92) 0%,
+    rgb(7 62 51 / 0.55) 45%,
+    rgb(20 26 23 / 0.25) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  padding-block: var(--space-8) var(--space-7);
+}
+
+.hero__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+}
+
+.hero__lead {
+  margin: var(--space-3) 0 var(--space-5);
+  font-size: var(--text-lg);
+  color: #e3efe9;
+  max-width: 36ch;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    min-height: 92vh;
+    align-items: center;
+  }
+
+  .hero__shade {
+    background: linear-gradient(
+      to right,
+      rgb(7 62 51 / 0.9) 0%,
+      rgb(7 62 51 / 0.6) 40%,
+      rgb(20 26 23 / 0) 75%
+    );
+  }
+
+  .hero__title {
+    font-size: 3.5rem;
+  }
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding-block: var(--space-8);
+}
+
+.section--surface {
+  background: var(--color-surface);
+}
+
+.section__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.section__note {
+  margin-top: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+.split {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.split__media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--color-border);
+}
+
+.split__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 900px) {
+  .section {
+    padding-block: var(--space-9);
+  }
+
+  .section__title {
+    font-size: var(--text-3xl);
+  }
+
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .split--reverse .split__media {
+    order: 2;
+  }
+}
+
+/* ---------- Report card contents ---------- */
+.report-items {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+.report-items li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 500;
+}
+
+.report-items__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-subtle);
+  color: var(--color-brand-800);
+  flex-shrink: 0;
+}
+
+/* ---------- Steps ---------- */
+.steps {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 500;
+}
+
+.step__number {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background: var(--color-peach-subtle);
+  color: var(--color-peach-ink);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---------- Closing photo band ---------- */
+.cta-band {
+  position: relative;
+  color: var(--color-on-brand);
+  background: var(--color-brand-800);
+  overflow: hidden;
+}
+
+.cta-band__photo {
+  object-position: center 40%;
+}
+
+.cta-band__shade {
+  position: absolute;
+  inset: 0;
+  background: rgb(7 62 51 / 0.72);
+}
+
+.cta-band__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding-block: var(--space-8);
+}
+
+.cta-band__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  max-width: 20ch;
+}
+
+@media (min-width: 900px) {
+  .cta-band__content {
+    padding-block: var(--space-9);
+  }
+
+  .cta-band__title {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-block: var(--space-5);
+}
+
+.site-footer__legal {
+  font-size: var(--text-sm);
+  color: var(--color-ink-subtle);
+}
